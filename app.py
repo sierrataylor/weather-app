@@ -3,10 +3,10 @@ import requests
 
 app = Flask(__name__)
 
-api = '3a152a1afe50c56cf61fef12cd96ea2f'
+#api = ''
 ip = requests.get('https://api.ipify.org').text
 params = {
-    'access_key': api,
+    'access_key': process.env.weather_api_key,
     'query': ip,
     'units': 'f'
 }
@@ -45,7 +45,7 @@ def weather():
     humidity = json_response['current']['humidity']
     feels_like = json_response['current']['feelslike']
     img_src = json_response['current']['weather_icons'][0]
-    
+
     return render_template(
         'weather.html',
         location=location,
