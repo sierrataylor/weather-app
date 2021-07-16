@@ -1,0 +1,18 @@
+body{
+    background-color: #F3EAAF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #00004d;
+}
+a{
+    text-decoration: underline;
+}
+.weather-descriptions{
+    color: #00004d;
+
+}
+.weather-conditions{
+    color: #7E4B68;
+}
