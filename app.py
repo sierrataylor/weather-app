@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request
 import requests
-
+import os
+from boto.s3.connection import S3Connection
 app = Flask(__name__)
 
 #api = ''
 ip = requests.get('https://api.ipify.org').text
+access_key = S3Connection(os.environ['WEATHER_KEY'])
 params = {
-    'access_key': process.env.weather_api_key,
+    'access_key': access_key,#os.getenv("weather_api_key","optional-default"),
     'query': ip,
     'units': 'f'
 }
@@ -45,7 +47,8 @@ def weather():
     humidity = json_response['current']['humidity']
     feels_like = json_response['current']['feelslike']
     img_src = json_response['current']['weather_icons'][0]
-
+    print(json_response)
+    print("-----------------")
     return render_template(
         'weather.html',
         location=location,
@@ -59,4 +62,4 @@ def weather():
 
  
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(debug=True, port=33507)
