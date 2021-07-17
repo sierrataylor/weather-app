@@ -43,8 +43,7 @@ def weather():
     humidity = json_response['current']['humidity']
     feels_like = json_response['current']['feelslike']
     img_src = json_response['current']['weather_icons'][0]
-    print(json_response)
-    print("-----------------")
+
     return render_template(
         'weather.html',
         location=location,
