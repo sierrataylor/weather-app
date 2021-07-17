@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request
 import requests
-import os
 app = Flask(__name__)
 
 #api = ''
 ip = requests.get('https://api.ipify.org').text
-access_key = os.getenv('WEATHER_KEY','None')
 params = {
-    'access_key': access_key,#os.getenv("weather_api_key","optional-default"),
+    'access_key': '3a152a1afe50c56cf61fef12cd96ea2f',
     'query': ip,
     'units': 'f'
 }
