@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import requests
 app = Flask(__name__)
 
-#api = ''
 ip = requests.get('https://api.ipify.org').text
 params = {
     'access_key': '3a152a1afe50c56cf61fef12cd96ea2f',
@@ -59,4 +58,4 @@ def weather():
 
  
 if __name__ == "__main__":
-	app.run(debug=True, port=33507)
+	app.run(debug=True)
