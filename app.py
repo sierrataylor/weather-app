@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request
 import requests
 import os
-from boto.s3.connection import S3Connection
 app = Flask(__name__)
 
 #api = ''
 ip = requests.get('https://api.ipify.org').text
-access_key = S3Connection(os.environ['WEATHER_KEY'])
+access_key = os.getenv('WEATHER_KEY','None')
 params = {
     'access_key': access_key,#os.getenv("weather_api_key","optional-default"),
     'query': ip,
