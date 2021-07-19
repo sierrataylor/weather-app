@@ -3,10 +3,10 @@ import requests
 app = Flask(__name__)
 
 ipstack_json = requests.get('http://api.ipstack.com/check?access_key=3ea5ee126f84aa3900d32b15efc32b79&format=1').json()
-city = ipstack_json['city'] 
+ip = ipstack_json['ip'] 
 params = {
     'access_key': '3a152a1afe50c56cf61fef12cd96ea2f',
-    'query': city,
+    'query': ip,
     'units': 'f'
 }
 def call_weather_api():
